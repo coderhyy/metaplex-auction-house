@@ -3,28 +3,33 @@ import {
   ConnectionProvider,
   WalletProvider,
 } from "@solana/wallet-adapter-react";
-import "@solana/wallet-adapter-react-ui/styles.css";
+import { UnsafeBurnerWalletAdapter } from "@solana/wallet-adapter-wallets";
 import { clusterApiUrl } from "@solana/web3.js";
 import { useMemo } from "react";
 import { toast } from "sonner";
 
-export function WalletConnectProvider({
-  children,
-}: {
+interface SolanaWalletProviderProps {
+  autoConnect?: boolean;
   children: React.ReactNode;
-}) {
-  const endpoint = useMemo(
-    () => clusterApiUrl(WalletAdapterNetwork.Devnet),
-    []
-  );
+  network?: WalletAdapterNetwork;
+}
+
+export function SolanaWalletProvider({
+  autoConnect = true,
+  children,
+  network = WalletAdapterNetwork.Devnet,
+}: SolanaWalletProviderProps) {
+  const endpoint = useMemo(() => clusterApiUrl(network), [network]);
+  const wallets = useMemo(() => [new UnsafeBurnerWalletAdapter()], []);
+
   return (
     <ConnectionProvider endpoint={endpoint}>
       <WalletProvider
-        autoConnect
+        autoConnect={autoConnect}
         onError={(error) => {
           toast.error(error.message);
         }}
-        wallets={[]}
+        wallets={wallets}
       >
         {children}
       </WalletProvider>

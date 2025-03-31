@@ -1,18 +1,21 @@
 import { ThemeProvider } from "./components/theme/theme-provider";
 import { Toaster } from "./components/ui/sonner";
-import { CustomConnectButton } from "./components/wallet/custom-connect-button";
-import { WalletConnectProvider } from "./components/wallet/wallet-connect-provider";
+import { WalletConnect } from "./components/wallet/wallet-connect";
+import { SolanaWalletProvider } from "./components/wallet/wallet-provider";
 
 function App() {
   return (
-    <>
-      <ThemeProvider>
-        <WalletConnectProvider>
-          <CustomConnectButton />
-        </WalletConnectProvider>
-        <Toaster position="top-center" />
-      </ThemeProvider>
-    </>
+    <ThemeProvider>
+      <SolanaWalletProvider>
+        <div className="p-4">
+          <header className="flex justify-end">
+            <WalletConnect />
+          </header>
+          {/* 应用其他内容 */}
+        </div>
+      </SolanaWalletProvider>
+      <Toaster position="top-center" />
+    </ThemeProvider>
   );
 }
 
