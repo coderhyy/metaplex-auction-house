@@ -1,0 +1,13 @@
+{
+  "selectWallet": "Select Wallet",
+  "changeWallet": "Change Wallet",
+  "connect": "Connect",
+  "connecting": "Connecting ...",
+  "copyAddress": "Copy address",
+  "copied": "Copied",
+  "disconnect": "Disconnect",
+  "detected": "Detected",
+  "connectYourSolanaWalletToAccessFullFeatures": "Connect your Solana wallet to access full features",
+  "connected": "Connected",
+  "disconnecting": "Disconnecting ..."
+}

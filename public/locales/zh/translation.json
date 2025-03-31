@@ -1,0 +1,13 @@
+{
+  "selectWallet": "选择钱包",
+  "changeWallet": "更换钱包",
+  "connect": "连接",
+  "connecting": "连接中...",
+  "copyAddress": "复制地址",
+  "copied": "已复制",
+  "disconnect": "断开连接",
+  "connectYourSolanaWalletToAccessFullFeatures": "请连接您的Solana钱包以访问完整功能",
+  "detected": "已检测到",
+  "connected": "已连接",
+  "disconnecting": "断开连接中..."
+}
